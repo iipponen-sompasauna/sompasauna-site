@@ -75,6 +75,14 @@ Sivusto on kaksikielinen. **Kumpikaan kieli ei saa jäädä jälkeen.**
 - Jos sisältö on väliaikaisesti vain toisella kielellä, se ei mene
   `main`-haaraan – pidä keskeneräinen käännös omassa haarassaan.
 
+**Miten kielipari sidotaan (tekninen):**
+- FI-sivu `src/nimi.md` ja EN-sivu `src/en/name.md` saavat front matteriin
+  **saman `ref`-avaimen** (esim. `ref: arrival`). Kieli tulee kansiosta.
+- `ref` ohjaa kielivalitsimen ja `hreflang`-linkit vastinsivulle. Ilman
+  vastinetta valitsin osoittaa kielen etusivulle.
+- Navigaatio: lisää kohta `src/_data/i18n.js`:n kumpaankin kielilistaan
+  samalla `ref`:llä. Navissa näkyy vain käännetyt sivut.
+
 ### Selkeä kieli (molemmat kielet)
 - Lyhyet virkkeet, yksi ajatus kerrallaan.
 - Suora puhuttelu ("Ota mukaan pyyhe"), toimintaohjeet aktiivissa.

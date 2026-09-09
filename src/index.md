@@ -1,40 +1,48 @@
 ---
 title: Etusivu
 permalink: /
+ref: home
 description: Sompasauna on Helsingin Sompasaaressa sijaitseva ilmainen, kaikille avoin yleisösauna. Aina auki, ei henkilökuntaa.
 ---
 
-# Sompasauna
+# Ilmainen sauna meren rannalla. Aina auki.
 
-<p class="lead">Ilmainen, kaikille avoin yleisösauna Helsingin Sompasaaressa.
-Ei henkilökuntaa – tule ja lämmitä sauna itse.</p>
+<p class="lead">Ei henkilökuntaa, ei pääsymaksua, ei varauksia. Sompasauna
+lämpiää talkoovoimin Sompasaaren rannassa – tule ja heitä löylyt.</p>
 
-## Saunan säännöt
+<figure class="hero-figure">
+  <img src="/assets/img/etusivu-talkoot.jpg" width="1100" height="734"
+       alt="Harmaantunut lautasauna nostetaan nostoliinoilla ilmaan mäntymetsän reunassa kevättalkoissa." />
+  <figcaption>Kevättalkoot 2025 – saunarakennus siirrossa.</figcaption>
+</figure>
 
-1. **Sompasauna on aina auki.** Sompasaunalla ei ole henkilökuntaa, saunan voi tulla aina lämmittämään itse.
-2. **Sompasauna on maksuton.** Voit halutessasi lahjoittaa rahaa tai liittyä yhdistykseen.
-3. **Sompasauna on sekasauna kaikille.** Saunalla ei ole erillisiä naisten tai miesten saunavuoroja.
-4. **Asu vapaa.** Voit saunoa ja uida alasti tai uimapuvussa.
-5. **Ota mukaan juomavettä ja pyyhe.** Saunalla ei ole juoksevaa vettä, suihkuja eikä peseytymismahdollisuutta.
-6. **Tuo oma lukko.** Saunalla ei ole pukuhuoneita. Arvotavaroille on lokeroita, joihin tarvitset oman munalukon.
-7. **Nollatoleranssi seksuaaliselle häirinnälle.** Häirikölle voidaan antaa porttikielto saunalle. Ilmoita häirinnästä SafeSompis-lomakkeella.
-8. **Ei valokuvausta eikä kaiuttimia.** Saunalla saa soittaa akustista musiikkia ja laulaa – saunalta löytyy jopa piano.
-9. **Älä ole tyberä.** Tue Sompasaunan löylyjä – jokainen euro lämmittää.
+## Yhdeksän sääntöä
 
-<div class="note">
-<strong>SafeSompis</strong> – häirinnästä ilmoittaminen: TODO lisää linkki lomakkeeseen.
-</div>
+<ol class="rules">
+  <li><div><strong>Sompasauna on aina auki.</strong> Saunalla ei ole henkilökuntaa – lämmität saunan itse.</div></li>
+  <li><div><strong>Sauna on maksuton.</strong> Halutessasi voit lahjoittaa tai liittyä yhdistyksen jäseneksi.</div></li>
+  <li><div><strong>Sekasauna kaikille.</strong> Ei erillisiä naisten tai miesten vuoroja.</div></li>
+  <li><div><strong>Asu on vapaa.</strong> Voit saunoa ja uida alasti tai uimapuvussa.</div></li>
+  <li><div><strong>Ota mukaan juomavettä ja pyyhe.</strong> Juoksevaa vettä, suihkuja tai peseytymistä ei ole.</div></li>
+  <li><div><strong>Tuo oma lukko.</strong> Pukuhuoneita ei ole; arvotavaroille on lukittavat lokerot.</div></li>
+  <li><div><strong>Nollatoleranssi häirinnälle.</strong> Häiriköt saavat porttikiellon. Ilmoita SafeSompis-lomakkeella.</div></li>
+  <li><div><strong>Ei kuvaamista, ei kaiuttimia.</strong> Akustinen soitto ja laulu ovat tervetulleita – saunalla on jopa piano.</div></li>
+  <li><div><strong>Älä ole tyberä.</strong> Tue Sompasaunan löylyjä. Jokainen euro lämmittää.</div></li>
+</ol>
+
+<p class="note"><strong>SafeSompis</strong> – häirinnästä ilmoittaminen.
+TODO: lisää linkki lomakkeeseen.</p>
+
+## Onko sauna lämmin juuri nyt?
+
+Sauna lämpiää useimmiten iltaisin ja viikonloppuisin. TODO: reaaliaikainen
+lämpötila ja päivän tilanne (`sompasauna/sompis-sensor-api`) sekä linkit
+Telegram-ilmoitustauluun.
 
 ## Tue Sompasaunaa
 
 - **MobilePay:** numeroon **80501**
-- **Luottokortti tai PayPal:** kerta- tai kuukausilahjoitus, ei tarvitse PayPal-tiliä. TODO lisää linkki.
+- **Luottokortti tai PayPal:** kerta- tai kuukausilahjoitus, ei tarvitse PayPal-tiliä. TODO: linkki.
 - **Tilisiirto:** {{ site.iban }} (Sompasaunaseura ry)
 
 <p><a class="button" href="/jasenyys/">Liity jäseneksi</a></p>
-
-## Löylyt juuri nyt
-
-TODO: Sompasaunan lämpötilamittari näyttää saunan lämmön reaaliajassa –
-lisätään tähän kun mittari-integraatio on valmis
-(`sompasauna/sompis-sensor-api`).

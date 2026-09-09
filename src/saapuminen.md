@@ -1,5 +1,6 @@
 ---
 title: Saapuminen
+ref: arrival
 description: Sompasaunan osoite on Kansanpuistonpolku 5, 00570 Helsinki. Saunalle ei pääse autolla.
 ---
 

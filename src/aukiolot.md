@@ -1,5 +1,6 @@
 ---
 title: Aukiolot
+ref: aukiolot
 description: Sompasauna on periaatteessa aina auki – saunan lämmittää itse. Käytännön lämpiämisajoista ja talkoista tässä.
 ---
 

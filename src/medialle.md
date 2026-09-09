@@ -1,5 +1,6 @@
 ---
 title: Medialle
+ref: media
 description: Saunalla kuvaaminen on lähtökohtaisesti kielletty. Median edustajat sopivat kuvaamisesta etukäteen.
 ---
 

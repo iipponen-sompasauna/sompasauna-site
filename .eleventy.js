@@ -11,6 +11,17 @@ module.exports = function (eleventyConfig) {
   // Älä käytä samaan aikaan `| url` -suodatinta templaateissa.
   eleventyConfig.addPlugin(EleventyHtmlBasePlugin);
 
+  // Kielivastineen URL: etsii saman `ref`-avaimen sivun halutulla kielellä.
+  // Palauttaa tyhjän merkkijonon jos vastinetta ei ole (esim. sivua ei ole
+  // vielä käännetty).
+  eleventyConfig.addFilter("pageUrl", function (ref, lang, all) {
+    if (!ref) return "";
+    const hit = (all || []).find(
+      (p) => p.data && p.data.ref === ref && p.data.lang === lang
+    );
+    return hit ? hit.url : "";
+  });
+
   return {
     dir: {
       input: "src",

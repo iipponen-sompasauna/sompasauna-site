@@ -1,5 +1,6 @@
 ---
 title: Sauna
+ref: sauna
 description: Sompasaunalla on useita saunoja. Ei juoksevaa vettä, ei suihkuja – ota mukaan juomavettä, pyyhe ja oma lukko.
 ---
 

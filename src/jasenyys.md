@@ -1,5 +1,6 @@
 ---
 title: Jäsenyys
+ref: membership
 description: Sompasaunaseura ry:n jäsenenä tuet Sompasaunan toimintaa. Vuosimaksu 20, 40 tai 60 euroa.
 ---
 

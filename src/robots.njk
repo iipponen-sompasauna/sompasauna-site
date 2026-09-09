@@ -1,0 +1,14 @@
+---
+permalink: /robots.txt
+layout: false
+eleventyExcludeFromCollections: true
+---
+{% if site.noindex -%}
+# Väliaikainen osoite (new.sompasauna.fi) — ei indeksointia.
+User-agent: *
+Disallow: /
+{%- else -%}
+User-agent: *
+Allow: /
+Sitemap: {{ site.url }}/sitemap.xml
+{%- endif %}

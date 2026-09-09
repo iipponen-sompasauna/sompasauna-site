@@ -1,5 +1,6 @@
 ---
 title: Tietosuojaseloste
+ref: privacy
 description: Miten Sompasaunaseura ry käsittelee henkilötietoja tällä verkkosivustolla.
 ---
 

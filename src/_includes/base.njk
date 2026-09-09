@@ -1,46 +1,91 @@
+{%- set lang = lang or "fi" -%}
+{%- set t = i18n[lang] or i18n.fi -%}
+{%- set isHome = page.url == "/" or page.url == "/en/" -%}
+{%- set homeUrl = "/en/" if lang == "en" else "/" -%}
+{%- set fiUrl = ref | pageUrl("fi", collections.all) -%}
+{%- set enUrl = ref | pageUrl("en", collections.all) -%}
 <!doctype html>
-<html lang="fi">
+<html lang="{{ lang }}">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>
-      {%- if title and page.url != "/" %}{{ title }} – {% endif -%}{{ site.name }}
-    </title>
+    <title>{% if title and not isHome %}{{ title }} &ndash; {% endif %}{{ site.name }}</title>
     <meta name="description" content="{{ description or site.description }}" />
-    {% if site.noindex %}<meta name="robots" content="noindex" />{% endif %}
-    <meta property="og:title" content="{% if title and page.url != '/' %}{{ title }} – {% endif %}{{ site.name }}" />
+    {% if site.noindex %}<meta name="robots" content="noindex, nofollow" />{% endif %}
+    <meta property="og:title" content="{% if title and not isHome %}{{ title }} &ndash; {% endif %}{{ site.name }}" />
     <meta property="og:description" content="{{ description or site.description }}" />
     <meta property="og:type" content="website" />
+    {% if fiUrl %}<link rel="alternate" hreflang="fi" href="{{ site.url }}{{ fiUrl }}" />{% endif %}
+    {% if enUrl %}<link rel="alternate" hreflang="en" href="{{ site.url }}{{ enUrl }}" />{% endif %}
+    {% if fiUrl %}<link rel="alternate" hreflang="x-default" href="{{ site.url }}{{ fiUrl }}" />{% endif %}
     <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Public+Sans:wght@400;500;600;700&display=swap" />
     <link rel="stylesheet" href="/assets/style.css" />
+    <script>
+      /* Aseta tallennettu teema ennen ensimmäistä maalausta; ohjaa juuressa
+         tallennettuun kieleen. Kaikki try/catchissä. */
+      (function () {
+        try {
+          var th = localStorage.getItem("sompa-theme");
+          if (th === "light" || th === "dark") document.documentElement.dataset.theme = th;
+          var p = location.pathname, lg = localStorage.getItem("sompa-lang");
+          if (p === "/" && lg === "en") location.replace("/en/");
+          else if (p === "/en/" && lg === "fi") location.replace("/");
+        } catch (e) {}
+      })();
+    </script>
   </head>
   <body>
-    <a class="skip-link" href="#main">Siirry sisältöön</a>
-    <header class="site-header">
-      <a class="brand" href="/">
-        <img src="/assets/img/sompaleijona.svg" alt="" width="44" height="44" />
+    <a class="skip-link" href="#main">{{ t.skip }}</a>
+
+    <header class="wrap site-head">
+      <a class="brand" href="{{ homeUrl }}">
+        <img src="/assets/img/sompaleijona.svg" alt="" width="26" height="28" />
         <span>Sompasauna</span>
       </a>
-      <nav aria-label="Päävalikko">
-        <ul>
-          {% for item in site.nav %}
-          <li>
-            <a href="{{ item.url }}"{% if page.url == item.url %} aria-current="page"{% endif %}>{{ item.text }}</a>
-          </li>
+
+      <nav class="site-nav" aria-label="{{ t.menu }}">
+        {% for item in t.nav %}
+          {%- set u = item.ref | pageUrl(lang, collections.all) -%}
+          {% if u %}<a href="{{ u }}"{% if page.url == u %} aria-current="page"{% endif %}>{{ item.text }}</a>{% endif %}
+        {% endfor %}
+
+        <div class="seg theme-toggle" role="group" aria-label="{{ t.theme.group }}">
+          <button type="button" data-theme-choice="auto" aria-pressed="true" aria-label="{{ t.theme.auto }}" title="{{ t.theme.auto }}">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path class="fill" d="M12 3a9 9 0 0 0 0 18z" /></svg>
+          </button>
+          <button type="button" data-theme-choice="light" aria-pressed="false" aria-label="{{ t.theme.light }}" title="{{ t.theme.light }}">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2" /><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.2 5.2l1.6 1.6M17.2 17.2l1.6 1.6M18.8 5.2l-1.6 1.6M6.8 17.2l-1.6 1.6" /></svg>
+          </button>
+          <button type="button" data-theme-choice="dark" aria-pressed="false" aria-label="{{ t.theme.dark }}" title="{{ t.theme.dark }}">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.3A8 8 0 1 1 9.7 4a6.3 6.3 0 0 0 10.3 10.3z" /></svg>
+          </button>
+        </div>
+
+        <div class="seg lang-toggle" role="group" aria-label="{{ t.langGroup }}">
+          {% for l in site.languages %}
+            {%- set lu = (ref | pageUrl(l.code, collections.all)) or l.home -%}
+            <a href="{{ lu }}" lang="{{ l.code }}" hreflang="{{ l.code }}" data-set-lang="{{ l.code }}"{% if l.code == lang %} aria-current="true"{% endif %}>{{ l.label }}</a>
           {% endfor %}
-        </ul>
+        </div>
       </nav>
     </header>
 
-    <main id="main" class="content">
-      {% if title and page.url != "/" %}<h1>{{ title }}</h1>{% endif %}
+    <main id="main" class="wrap content">
+      {% if title and not isHome %}<h1>{{ title }}</h1>{% endif %}
       {{ content | safe }}
     </main>
 
     <footer class="site-footer">
-      <p>{{ site.address }} · <a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
-      <p>Sompasaunaseura ry · Y-tunnus {{ site.businessId }} · Rahankeräyslupa {{ site.fundraisingPermit }}</p>
-      <p><a href="/tietosuoja/">Tietosuojaseloste</a></p>
+      <div class="wrap">
+        <p>{{ site.address }} &middot; <a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+        <p>Sompasaunaseura ry &middot; Y-tunnus {{ site.businessId }} &middot; Rahankeräyslupa {{ site.fundraisingPermit }}</p>
+        <p><a href="{{ ('privacy' | pageUrl(lang, collections.all)) or '/tietosuoja/' }}">{{ t.footer.privacy }}</a></p>
+      </div>
     </footer>
+
+    <script src="/assets/js/ui.js" defer></script>
   </body>
 </html>

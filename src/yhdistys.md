@@ -1,5 +1,6 @@
 ---
 title: Yhdistys
+ref: association
 description: Sompasaunaseura ry ylläpitää Sompasaunaa. Y-tunnus 2661146-7.
 ---
 

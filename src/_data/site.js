@@ -12,13 +12,9 @@ module.exports = {
   businessId: "2661146-7",
   fundraisingPermit: "RA/2023/1573",
   iban: "FI94 7997 7997 2766 42",
-  nav: [
-    { text: "Etusivu", url: "/" },
-    { text: "Sauna", url: "/sauna/" },
-    { text: "Aukiolot", url: "/aukiolot/" },
-    { text: "Saapuminen", url: "/saapuminen/" },
-    { text: "Jäsenyys", url: "/jasenyys/" },
-    { text: "Yhdistys", url: "/yhdistys/" },
-    { text: "Medialle", url: "/medialle/" },
+  // Kielet: eka on oletus (juuri "/"). Navigaatio ja UI-tekstit: _data/i18n.js
+  languages: [
+    { code: "fi", label: "FI", home: "/" },
+    { code: "en", label: "EN", home: "/en/" },
   ],
 };
