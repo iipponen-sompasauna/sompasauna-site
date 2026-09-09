@@ -33,10 +33,15 @@ linkki navigaatioon `src/_data/site.js`:n `nav`-listaan.
 
 ## Julkaisu
 
-Push `main`-haaraan → GitHub Actions rakentaa ja julkaisee GitHub Pagesiin.
-Workflow yrittää kytkeä Pagesin päälle automaattisesti (`enablement: true`).
-Jos organisaation/tilin asetukset estävät sen, ota käyttöön käsin:
-**Settings → Pages → Build and deployment → Source: GitHub Actions**.
+Push `main`-haaraan → GitHub Actions rakentaa sivuston. `build`-job (Eleventy)
+menee aina läpi. `deploy`-job julkaisee Pagesiin, ja se **vaatii
+kertaluontoisen käyttöönoton**:
+
+**Settings → Pages → Build and deployment → Source: GitHub Actions**
+
+Ennen tätä `deploy`-job näkyy punaisena – se on odotettua. Kun asetus on
+tehty, aja workflow uudelleen (Actions → viimeisin ajo → Re-run) tai pushaa
+mikä tahansa muutos.
 
 > **Huom:** repo on yksityinen. GitHub Pages julkaisee sivuston
 > lähtökohtaisesti **julkiseen** osoitteeseen myös yksityisestä reposta

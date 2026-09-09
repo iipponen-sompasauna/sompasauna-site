@@ -27,23 +27,21 @@ jobs:
       # Vaihda 'npm ci':ksi kun package-lock.json on committoitu repoon.
       - run: npm install --no-audit --no-fund
 
-      # Project site julkaistaan osoitteessa https://<käyttäjä>.github.io/sompasauna-site/
+      # Project site: https://iipponen-sompasauna.github.io/sompasauna-site/
       # Kun oma domain (sompasauna.fi) otetaan käyttöön: poista PATH_PREFIX ja
       # lisää src/CNAME-tiedosto (sisältö: sompasauna.fi).
       - run: npm run build
         env:
           PATH_PREFIX: /sompasauna-site/
 
-      # enablement: true luo Pages-sivun automaattisesti, jos sitä ei ole vielä
-      # kytketty käsin (Settings → Pages → Source: GitHub Actions).
-      - uses: actions/configure-pages@v5
-        with:
-          enablement: true
-
+      # Ei vaadi Pagesin käyttöönottoa – tämä vaihe on aina vihreä.
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site
 
+  # Vaatii kertaluontoisen käyttöönoton:
+  # Settings -> Pages -> Build and deployment -> Source: GitHub Actions.
+  # Sitä ennen tämä job epäonnistuu (build-job menee silti läpi).
   deploy:
     needs: build
     runs-on: ubuntu-latest
