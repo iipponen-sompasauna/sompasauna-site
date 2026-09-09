@@ -11,6 +11,9 @@ Julkaistaan toistaiseksi **väliaikaiseen osoitteeseen
 https://new.sompasauna.fi** rinnakkain tuotantosivun kanssa. Sivu on
 `noindex` niin kauan kuin se on väliaikainen (ks. `src/_data/site.js`).
 
+**Jokainen muutos:** noudata [CONTRIBUTING.md](CONTRIBUTING.md) –
+saavutettavuus (WCAG 2.1 AA), FI + EN yhdenmukaisina, mobiili edellä.
+
 ## Kehitys
 
 ```bash
