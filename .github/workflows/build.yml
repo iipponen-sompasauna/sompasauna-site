@@ -34,7 +34,11 @@ jobs:
         env:
           PATH_PREFIX: /sompasauna-site/
 
+      # enablement: true luo Pages-sivun automaattisesti, jos sitä ei ole vielä
+      # kytketty käsin (Settings → Pages → Source: GitHub Actions).
       - uses: actions/configure-pages@v5
+        with:
+          enablement: true
 
       - uses: actions/upload-pages-artifact@v3
         with:

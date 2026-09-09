@@ -34,9 +34,15 @@ linkki navigaatioon `src/_data/site.js`:n `nav`-listaan.
 ## Julkaisu
 
 Push `main`-haaraan → GitHub Actions rakentaa ja julkaisee GitHub Pagesiin.
+Workflow yrittää kytkeä Pagesin päälle automaattisesti (`enablement: true`).
+Jos organisaation/tilin asetukset estävät sen, ota käyttöön käsin:
+**Settings → Pages → Build and deployment → Source: GitHub Actions**.
 
-Ota käyttöön kerran: **Settings → Pages → Build and deployment → Source:
-GitHub Actions**.
+> **Huom:** repo on yksityinen. GitHub Pages julkaisee sivuston
+> lähtökohtaisesti **julkiseen** osoitteeseen myös yksityisestä reposta
+> (pääsyrajattu Pages vaatii maksullisen GitHub-tilan). Sivuston sisältö on
+> joka tapauksessa tarkoitettu julkiseksi. Vaihtoehto: Netlify, joka
+> deployaa yksityisestä reposta ilman tätä rajoitusta.
 
 Projektisivun osoite on `https://iipponen-sompasauna.github.io/sompasauna-site/`,
 minkä vuoksi build asettaa `PATH_PREFIX=/sompasauna-site/`.
