@@ -1,0 +1,17 @@
+# Build
+_site/
+.cache/
+.eleventy-cache/
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Käyttöjärjestelmä / editorit
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
