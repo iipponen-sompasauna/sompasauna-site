@@ -7,6 +7,7 @@
       {%- if title and page.url != "/" %}{{ title }} – {% endif -%}{{ site.name }}
     </title>
     <meta name="description" content="{{ description or site.description }}" />
+    {% if site.noindex %}<meta name="robots" content="noindex" />{% endif %}
     <meta property="og:title" content="{% if title and page.url != '/' %}{{ title }} – {% endif %}{{ site.name }}" />
     <meta property="og:description" content="{{ description or site.description }}" />
     <meta property="og:type" content="website" />

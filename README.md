@@ -7,6 +7,10 @@ Korvaa aikanaan nykyisen
 [Sompasauna-repon](https://github.com/iipponen-sompasauna/Sompasauna)
 staattiset HTML-sivut (julkaistu osoitteessa https://sompasauna.fi).
 
+Julkaistaan toistaiseksi **väliaikaiseen osoitteeseen
+https://new.sompasauna.fi** rinnakkain tuotantosivun kanssa. Sivu on
+`noindex` niin kauan kuin se on väliaikainen (ks. `src/_data/site.js`).
+
 ## Kehitys
 
 ```bash
@@ -15,7 +19,7 @@ npm start      # http://localhost:8080, live reload
 npm run build  # tuottaa _site/
 ```
 
-Node-versio: ks. [.nvmrc](.nvmrc) (20).
+Node-versio: ks. [.nvmrc](.nvmrc) (22).
 
 ## Rakenne
 
@@ -49,18 +53,25 @@ mikä tahansa muutos.
 > joka tapauksessa tarkoitettu julkiseksi. Vaihtoehto: Netlify, joka
 > deployaa yksityisestä reposta ilman tätä rajoitusta.
 
-Projektisivun osoite on `https://iipponen-sompasauna.github.io/sompasauna-site/`,
-minkä vuoksi build asettaa `PATH_PREFIX=/sompasauna-site/`.
+### Custom domain: new.sompasauna.fi
 
-### Oman domainin (sompasauna.fi) käyttöönotto myöhemmin
+1. **DNS** (sompasauna.fi:n hallinnassa): lisää alidomaini
+   `new` → `iipponen-sompasauna.github.io` (CNAME). Ks. tarkat arvot alla.
+2. **GitHub**: `src/CNAME` sisältää `new.sompasauna.fi`. Kun `deploy`-job on
+   ajettu, GitHub asettaa custom domainin automaattisesti. Tarkista
+   **Settings → Pages**: Custom domain = `new.sompasauna.fi`,
+   "Enforce HTTPS" päälle (voi kestää hetken, kun sertifikaatti myönnetään).
+3. Tuotantosivu (`sompasauna.fi`, repo `Sompasauna`) jää ennalleen –
+   eri hostname, ei konfliktia.
 
-Domain osoittaa nyt vanhaan repoon. Kun tämä sivusto on valmis:
+### Tuotantoon siirto myöhemmin
 
-1. Poista `PATH_PREFIX`-rivi workflowsta (`.github/workflows/build.yml`).
-2. Lisää tiedosto `src/CNAME`, sisältö: `sompasauna.fi`, ja lisää sen
-   passthrough-kopiointi `.eleventy.js`:ään.
-3. Siirrä DNS / GitHub Pages -domain tähän repoon ja poista se vanhasta.
-4. Tarkista HTTPS ("Enforce HTTPS" Pages-asetuksissa).
+Kun tästä tulee `sompasauna.fi`:
+
+1. Vaihda `src/CNAME` → `sompasauna.fi` (tai `www.sompasauna.fi`).
+2. `src/_data/site.js`: `url` → `https://sompasauna.fi`, `noindex: false`.
+3. Siirrä apex-domain tähän repoon (A/AAAA-tietueet) ja poista vanhasta.
+4. Tarkista "Enforce HTTPS".
 
 ## Tila
 

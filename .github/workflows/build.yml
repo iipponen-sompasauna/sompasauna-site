@@ -27,12 +27,9 @@ jobs:
       # Vaihda 'npm ci':ksi kun package-lock.json on committoitu repoon.
       - run: npm install --no-audit --no-fund
 
-      # Project site: https://iipponen-sompasauna.github.io/sompasauna-site/
-      # Kun oma domain (sompasauna.fi) otetaan käyttöön: poista PATH_PREFIX ja
-      # lisää src/CNAME-tiedosto (sisältö: sompasauna.fi).
+      # Julkaistaan custom domainiin new.sompasauna.fi -> tarjoillaan juuresta.
+      # src/CNAME ohjaa GitHub Pagesin käyttämään tuota osoitetta.
       - run: npm run build
-        env:
-          PATH_PREFIX: /sompasauna-site/
 
       # Ei vaadi Pagesin käyttöönottoa – tämä vaihe on aina vihreä.
       - uses: actions/upload-pages-artifact@v3

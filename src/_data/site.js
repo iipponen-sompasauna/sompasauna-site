@@ -2,7 +2,10 @@ module.exports = {
   name: "Sompasauna",
   description:
     "Sompasauna on Helsingin Sompasaaressa sijaitseva ilmainen, kaikille avoin yleisösauna. Aina auki, ei henkilökuntaa, sekasauna kaikille.",
-  url: "https://sompasauna.fi",
+  // Väliaikainen julkaisuosoite. Kun tästä tulee tuotanto, vaihda
+  // "https://sompasauna.fi" ja aseta noindex: false.
+  url: "https://new.sompasauna.fi",
+  noindex: true,
   email: "sompasauna@sompasauna.fi",
   boardEmail: "hallitus@sompasauna.fi",
   address: "Kansanpuistonpolku 5, 00570 Helsinki",
