@@ -27,9 +27,19 @@ Sinulla on oikeus tarkastaa, oikaista ja poistaa tietosi, rajoittaa
 käsittelyä, peruuttaa suostumus sekä tehdä valitus Tietosuojavaltuutetun
 toimistolle.
 
-Sivustolla ei tällä hetkellä käytetä evästeitä. Mikäli evästeitä otetaan
-myöhemmin käyttöön, niiden käytöstä tiedotetaan ja tarvittaessa pyydetään
-suostumus.
+## Evästeet
+
+Sivustolla ei käytetä evästeitä. Mikäli evästeitä otetaan myöhemmin
+käyttöön, niiden käytöstä tiedotetaan ja tarvittaessa pyydetään suostumus.
+
+## Selaimeen tallennettavat valinnat
+
+Selaimesi tallentaa kieli- ja teemavalintasi (suomi/englanti, vaalea/tumma)
+laitteellesi selaimen paikalliseen muistiin (localStorage). Tietoa käytetään
+vain sivuston näyttämiseen valitsemallasi tavalla, eikä sitä lähetetä
+palvelimelle tai kolmansille osapuolille. Kyse on käyttäjän nimenomaisesti
+pyytämästä toiminnosta, joten se ei edellytä erillistä suostumusta. Voit
+poistaa nämä tiedot tyhjentämällä selaimesi sivustotiedot.
 
 <div class="note">
 TODO: tarkista, että selosteen sisältö vastaa lopullista hosting-/analytiikkaratkaisua
