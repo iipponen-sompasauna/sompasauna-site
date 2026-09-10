@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{% if title and not isHome %}{{ title }} &ndash; {% endif %}{{ site.name }}</title>
     <meta name="description" content="{{ description or site.description }}" />
-    {% if site.noindex %}<meta name="robots" content="noindex, nofollow" />{% endif %}
+    {% if site.noindex or noindex %}<meta name="robots" content="noindex, nofollow" />{% endif %}
     <meta property="og:title" content="{% if title and not isHome %}{{ title }} &ndash; {% endif %}{{ site.name }}" />
     <meta property="og:description" content="{{ description or site.description }}" />
     <meta property="og:type" content="website" />

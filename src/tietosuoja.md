@@ -42,6 +42,15 @@ palvelimelle tai kolmansille osapuolille. Kyse on käyttäjän nimenomaisesti
 pyytämästä toiminnosta, joten se ei edellytä erillistä suostumusta. Voit
 poistaa nämä tiedot tyhjentämällä selaimesi sivustotiedot.
 
+## Lahjoitukset
+
+Korttilahjoitukset käsittelee **Stripe**. Kun aloitat lahjoituksen, siirryt
+Stripen hostaamalle maksusivulle; **korttitietoja ei syötetä eikä käsitellä
+tällä sivustolla**. Stripe toimii maksunvälittäjänä ja käsittelee antamiasi
+tietoja (nimi, sähköposti, maksutiedot) oman tietosuojakäytäntönsä mukaisesti.
+Sompasaunaseura ry saa Stripeltä lahjoitukseen liittyvät tiedot kirjanpitoa ja
+lahjoittajan tunnistamista varten.
+
 <div class="note">
 TODO: tarkista, että selosteen sisältö vastaa lopullista hosting-/analytiikkaratkaisua
 (esim. GitHub Pages / Netlify -lokit) ja päivitä päivämäärä julkaisun yhteydessä.

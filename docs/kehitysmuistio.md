@@ -5,6 +5,42 @@ Uusin päivä ylimpänä. Yksityiskohtaiset toteutusperiaatteet: [../CONTRIBUTIN
 
 ---
 
+## 2026-09-10 — lahjoitukset & Stripe
+
+### Ratkaisu: Stripe Payment Links
+
+Staattiselle sivulle (GitHub Pages, ei backendiä) oikea tapa on **Payment
+Links** — Stripen hostaama maksusivu, johon vain linkitetään. Ei JS:ää, ei
+PCI-vastuuta. Buy Button / Pricing Table -embedit hylättiin (lataisivat
+`js.stripe.com`:n + evästeet joka käynnillä → turha GDPR-rasite). Oma backend
+(Payment Element) ei sovi talkoillaan pyöritettävään.
+
+### Toteutettu (teline)
+
+- `src/_data/site.js` → `donate: { stripeOnce, stripeMonthly, mobilePay }`.
+  **Nyt TEST-linkki paikanpitäjänä molemmissa.**
+- Uusi sivu **`/tue/` + `/en/support/`** (`ref: support`, navissa "Tue"/"Support"):
+  ensisijaiset Stripe-napit (kerta + kuukausi), toissijaiset MobilePay/PayPal/
+  tilisiirto, jäsenyys-ristiinlinkki, lupanumero + Y-tunnus.
+- **`/kiitos/` + `/en/thanks/`** (`ref: thanks`, `noindex: true`, ei navissa) —
+  Stripen redirect-kohde maksun jälkeen.
+- Etusivut tiivistetty: "Lahjoita" → `/tue/` + MobilePay-numero näkyviin.
+- `base.njk`: `noindex` nyt myös sivukohtaisesti front matterista.
+- Tietosuojaseloste: kohta "Lahjoitukset" (Stripe maksunvälittäjänä).
+- CSS: `.button-ghost`, `.give-primary`.
+
+### Ennen tuotantoa (Stripe Dashboard)
+
+- Tili rekisteröitävä **Sompasaunaseura ry:lle** (Y-tunnus 2661146-7).
+- Kaksi live Payment Linkiä: kertalahjoitus ("customer chooses amount",
+  ehdotukset 5/10/20/50 €) + kuukausilahjoitus (toistuva hinta).
+- Valuutta EUR, Apple/Google Pay päälle, brändiväri `#356E72`, logo.
+- Kerää nimi + sähköposti. Redirect maksun jälkeen → `/kiitos/` (ja
+  `/en/thanks/` EN-linkille).
+- Vaihda live-URLit `site.js`:ään; tee EN-jäsenyyssivu ja PayPal-linkki.
+
+---
+
 ## 2026-09-09 — suunta, valitsimet, porttaus
 
 ### Repot ja julkaisu

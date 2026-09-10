@@ -41,8 +41,13 @@ Telegram-ilmoitustauluun.
 
 ## Tue Sompasaunaa
 
-- **MobilePay:** numeroon **80501**
-- **Luottokortti tai PayPal:** kerta- tai kuukausilahjoitus, ei tarvitse PayPal-tiliä. TODO: linkki.
-- **Tilisiirto:** {{ site.iban }} (Sompasaunaseura ry)
+Sauna on ilmainen, mutta puut, korjaukset ja vakuutukset eivät. Pienikin tuki
+pitää löylyt lämpiminä.
 
-<p><a class="button" href="/jasenyys/">Liity jäseneksi</a></p>
+<p class="give-primary">
+  <a class="button" href="/tue/">Lahjoita</a>
+  <a class="button button-ghost" href="/jasenyys/">Liity jäseneksi</a>
+</p>
+
+Nopein tapa: <strong>MobilePay {{ site.donate.mobilePay }}</strong>. Muut tavat
+ja kuukausilahjoitus: [Tue Sompasaunaa](/tue/).

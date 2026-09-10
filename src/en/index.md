@@ -41,10 +41,13 @@ to the Telegram noticeboard.
 
 ## Support Sompasauna
 
-- **MobilePay:** to number **80501**
-- **Credit card or PayPal:** one-off or monthly, no account needed. TODO: link.
-- **Bank transfer (SEPA):** {{ site.iban }} (Sompasaunaseura ry)
+The sauna is free, but firewood, repairs and insurance are not. Every bit of
+support keeps the löyly warm.
 
-You can join as a regular or supporting member via Sompasaunaseura's Holvi
-online store. TODO: add link. Questions:
-[{{ site.boardEmail }}](mailto:{{ site.boardEmail }}).
+<p class="give-primary">
+  <a class="button" href="/en/support/">Donate</a>
+  <a class="button button-ghost" href="mailto:{{ site.boardEmail }}">Become a member</a>
+</p>
+
+Quickest way: <strong>MobilePay {{ site.donate.mobilePay }}</strong>. Other
+ways and monthly giving: [Support Sompasauna](/en/support/).
