@@ -4,9 +4,12 @@ layout: false
 eleventyExcludeFromCollections: true
 ---
 {% if site.noindex -%}
-# Väliaikainen osoite (new.sompasauna.fi) — ei indeksointia.
+# Väliaikainen osoite (new.sompasauna.fi).
+# Indeksointi estetään sivukohtaisella <meta name="robots" content="noindex">
+# -merkinnällä. Ryömintä sallitaan, jotta crawler näkee tuon ohjeen ja jotta
+# analytiikkatyökalut (Lighthouse / PageSpeed Insights) pääsevät sivulle.
 User-agent: *
-Disallow: /
+Allow: /
 {%- else -%}
 User-agent: *
 Allow: /

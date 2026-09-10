@@ -12,9 +12,10 @@ https://new.sompasauna.fi** rinnakkain tuotantosivun kanssa.
 
 **Hakukoneet pidetään poissa** niin kauan kuin osoite on väliaikainen:
 `src/_data/site.js`:n `noindex: true` tuottaa jokaiselle sivulle
-`<meta name="robots" content="noindex, nofollow">` ja `/robots.txt`:n
-`Disallow: /`. Molemmat kääntyvät automaattisesti kun `noindex` asetetaan
-`false`:ksi tuotantoon siirryttäessä.
+`<meta name="robots" content="noindex, nofollow">`. Ryömintä sallitaan
+(`/robots.txt` `Allow: /`), jotta crawler näkee tuon ohjeen ja jotta
+Lighthouse / PageSpeed Insights pääsevät analysoimaan sivua. `noindex: false`
+kääntää metan pois ja lisää robots.txt:hen sitemapin.
 
 **Jokainen muutos:** noudata [CONTRIBUTING.md](CONTRIBUTING.md) –
 saavutettavuus (WCAG 2.1 AA), FI + EN yhdenmukaisina, mobiili edellä.

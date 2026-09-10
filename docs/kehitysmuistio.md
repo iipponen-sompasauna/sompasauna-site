@@ -16,12 +16,13 @@ Uusin päivä ylimpänä. Yksityiskohtaiset toteutusperiaatteet: [../CONTRIBUTIN
   aineisto (sopimukset, henkilötiedot) pidetään versionhallinnan ulkopuolella.
 - Julkaisu toistaiseksi **väliaikaiseen osoitteeseen `new.sompasauna.fi`**
   tuotantosivun rinnalla, **käytössä oikeasti** (ei pelkkä mockup).
-- **Hakukoneita ei päästetä sivulle tässä osoitteessa** (ei saa näkyä
-  Googlessa `new.sompasauna.fi`). Toteutus: `site.noindex: true` →
-  `<meta name="robots" content="noindex, nofollow">` joka sivulla +
-  `/robots.txt` `Disallow: /`. Kääntyvät `noindex: false`:lla tuotantoon.
-  Huom: sivua ei myöskään linkitetä mistään julkisesti. Jos se joskus silti
-  ilmestyy hakuun → poisto Google Search Consolen kautta.
+- **Ei saa näkyä Googlessa** osoitteessa `new.sompasauna.fi`. Toteutus:
+  `site.noindex: true` → `<meta name="robots" content="noindex, nofollow">`
+  jokaisella sivulla. **Ryömintä sallitaan** (`/robots.txt` `Allow: /`),
+  koska (a) crawlerin on päästävä sivulle nähdäkseen `noindex`-ohjeen ja
+  (b) `Disallow: /` esti Lighthousen / PageSpeed Insightsin. Kääntyy
+  `noindex: false`:lla tuotantoon. Sivua ei myöskään linkitetä julkisesti;
+  jos se silti ilmestyy hakuun → poisto Search Consolen kautta.
 - Tuotantodomain `sompasauna.fi` siirretään vasta kun sivu on valmis
   (ohjeet `README.md`).
 - DNS Cloudflaressa: `new` → `iipponen-sompasauna.github.io` (CNAME,
